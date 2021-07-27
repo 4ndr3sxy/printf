@@ -21,7 +21,7 @@ void cleaner(va_list arg_list, buffer_t *output)
  * Return: count of char tours
  */
 unsigned int execute_printf(const char *format,
-va_list arg_list, buffer_t *output)
+							va_list arg_list, buffer_t *output)
 {
 	unsigned int i, ret = 0;
 	unsigned int (*f)(va_list, buffer_t *);
@@ -68,7 +68,8 @@ unsigned int _printf(const char *format, ...)
 
 	va_start(arg_list, format);
 
-	if (format == NULL || arg_list == NULL || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL || arg_list == NULL ||
+		(format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
 	ret = execute_printf(format, arg_list, output);
