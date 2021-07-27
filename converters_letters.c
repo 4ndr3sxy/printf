@@ -74,13 +74,13 @@ unsigned int convert_percent(__attribute__((unused)) va_list arg_list,
  * @output: A buffer_t struct containing a character array.
  * Return: The number of bytes stored to the buffer.
  */
-unsigned int convert_r(va_list args, buffer_t *output)
+unsigned int convert_r(va_list arg_list, buffer_t *output)
 {
 	char *str, *null = "(null)";
 	int size, lastchar, i;
 	unsigned int ret = 0;
 
-	str = va_arg(args, char *);
+	str = va_arg(arg_list, char *);
 	if (str == NULL)
 		_copy(output, null, 6);
 
