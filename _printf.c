@@ -68,6 +68,9 @@ unsigned int _printf(const char *format, ...)
 
 	va_start(arg_list, format);
 
+	if (format == NULL || arg_list == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+
 	ret = execute_printf(format, arg_list, output);
 
 	return (ret);
