@@ -12,12 +12,9 @@
  */
 unsigned int convert_di(va_list arg_list, buffer_t *output)
 {
-	int tens = 1;
-	int num = va_arg(arg_list, int);
-	int tensit = num;
+	int tens = 1, num = va_arg(arg_list, int), tensit = num;
 	unsigned int ret = 0;
-	char neg = '-';
-	char temp;
+	char neg = '-', temp;
 	char *temp2;
 
 	if (num < 0)
@@ -25,11 +22,13 @@ unsigned int convert_di(va_list arg_list, buffer_t *output)
 		num *= -1;
 		_copy(output, &neg, 1);
 		tensit *= -1;
+		ret++;
 	}
 	if (num == 0)
 	{
 		temp = '0';
 		_copy(output, &temp, 1);
+		ret++;
 	}
 	if (num == INT_MAX)
 	{
