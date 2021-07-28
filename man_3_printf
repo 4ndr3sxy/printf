@@ -1,0 +1,52 @@
+.\" Manpage for nuseradd.
+.\" Contact vivek@nixcraft.net.in to correct errors or typos.
+.TH _PRINTF 3 "July 2021" "1.0" "User Commands"
+.SH NAME
+_printf \- print a standard output 
+.SH SYNOPSIS
+_printf (const char *format, [ARGUMENT]...)
+.SH DESCRIPTION
+Print ARGUMENT(s) with use of variadic function;
+FORMAT controls the output as in C _printf, interpreted sequences are:
+\n
+\\n     New line
+\n
+%c     Print a char
+\n
+%s     String, chain characters (char *)
+\n
+%d     Decimal numbers
+\n
+%i     Decimal numbers
+\n
+%o	Return number in base Octal
+\n
+%%	Print one %
+\n
+%x	Print Hexadecimal in lowwercase
+\n
+%X	Print Hexadecimal in Uppercase
+\n
+%S	Print values of the output in Hezadecimal
+\n
+%u	Print a unsigned int
+\n
+%b	Print a number and convert this number in base 2 (Binary)
+\n
+%r	Print a input in reverse
+\n
+%R	Get a chain of character and encode in ROT 13
+\n
+%p	Print a pointer (addres in memory)
+
+
+.SH SEE ALSO
+_printf(3)
+\n
+Repository of github in https://github.com/4ndr3sxy/printf
+\n
+Contributor https://github.com/JuanDavidPena
+.SH BUGS
+In progress
+.SH AUTHOR
+Written by Andres Castaneda and David Pena
