@@ -12,11 +12,11 @@
  */
 unsigned int convert_di(va_list arg_list, buffer_t *output)
 {
-	int tens = 1, num = va_arg(arg_list, int), tensit = num;
-	unsigned int ret = 0;
+	long int tens = 1, num = va_arg(arg_list, int), tensit = num;
+	int ret = 0;
 	char neg = '-', temp, zero = '0';
 
-	if (num < 0)
+	if ((int) num < 0)
 	{
 		_copy(output, &neg, 1);
 		if (num == INT_MIN)
