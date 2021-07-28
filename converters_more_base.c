@@ -99,7 +99,7 @@ unsigned int convert_R(va_list arg_list, buffer_t *output)
 
 	str = va_arg(arg_list, char *);
 	if (str == NULL)
-		return (_memcpy(output, null, 6));
+		return (_copy(output, null, 6));
 
 	for (size = 0; *(str + size);)
 		size++;
@@ -110,12 +110,12 @@ unsigned int convert_R(va_list arg_list, buffer_t *output)
 		{
 			if (*(str + i) == *(alpha + j))
 			{
-				ret += _memcpy(output, (rot13 + j), 1);
+				ret += _copy(output, (rot13 + j), 1);
 				break;
 			}
 		}
 		if (j == 52)
-			ret += _memcpy(output, (str + i), 1);
+			ret += _copy(output, (str + i), 1);
 	}
 
 	return (ret);
