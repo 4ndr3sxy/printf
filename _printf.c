@@ -37,19 +37,6 @@ unsigned int execute_printf(const char *format,
 				ret += f(arg_list, output);
 				continue;
 			}
-			else if (*(format + i + 1) == '+' || *(format + i + 1) == '#'
-			|| *(format + i + 1) == ' ')
-			{
-				f = character_handler(format + i + 2);
-				if (f != NULL)
-				{
-					if (*(format + i + 1) == '+')
-						ret += _copy(output, '+', 1);
-					if (*(format + i + 1) == ' ')
-						ret += _copy(output, ' ', 1);
-					ret += f(arg_list, output);
-				}
-			}
 			else if (*(format + i + 1) == '\0')
 			{
 				ret = -1;
