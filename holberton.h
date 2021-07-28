@@ -53,6 +53,7 @@ unsigned int convert_X(va_list arg_list, buffer_t *output);
 unsigned int convert_S(va_list arg_list, buffer_t *output);
 unsigned int convert_p(va_list arg_list, buffer_t *output);
 unsigned int convert_r(va_list arg_list, buffer_t *output);
+unsigned int convert_R(va_list arg_list, buffer_t *output);
 
 buffer_t *init_buffer(void);
 void free_buffer(buffer_t *output);

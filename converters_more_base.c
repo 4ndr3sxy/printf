@@ -85,7 +85,7 @@ unsigned int convert_p(va_list args, buffer_t *output)
 /**
  * convert_R - Converts a string to ROT13 and copies
  *             it to the output.
- * @arg: A va_list list containing the arguments.
+ * @arg_list: A va_list list containing the arguments.
  * @output: A buffer_t struct containing a character array.
  * Return: The number of bytes stored to the buffer.
  */
