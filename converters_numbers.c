@@ -14,23 +14,27 @@ unsigned int convert_di(va_list arg_list, buffer_t *output)
 {
 	int tens = 1, num = va_arg(arg_list, int), tensit = num;
 	unsigned int ret = 0;
-	char neg = '-';
-	char temp = '0';
+	char neg = '-', temp;
+	char *temp2;
 
-	if (num == INT_MAX || num == INT_MIN)
-	{
-		ret = handle_limits(output, num);
-		return (ret);
-	}
 	if (num < 0)
 	{
 		num *= -1;
 		_copy(output, &neg, 1);
 		tensit *= -1;
+		ret++;
 	}
 	if (num == 0)
 	{
+		temp = '0';
 		_copy(output, &temp, 1);
+		ret++;
+	}
+	if (num == INT_MAX)
+	{
+		temp2 = "2147483647";
+		_copy(output, temp2, 10);
+		return (10);
 	}
 	while (num != 0)
 	{
@@ -47,28 +51,4 @@ unsigned int convert_di(va_list arg_list, buffer_t *output)
 		ret++;
 	}
 	return (ret);
-}
-
-/**
- * handle_limits - Handles with the limits for convert_di.
- * @num: int to handle.
- * @output: A buffer_t struct containing a character array.
- *
- * Return: The number of bytes stored to the buffer.
- */
-unsigned int handle_limits(buffer_t *output, int num)
-{
-	char *min = "2147483648", *max = "2147483647", neg = '-';
-
-	if (num == INT_MAX)
-	{
-		_copy(output, max, 10);
-		return (10);
-	}
-	else
-	{
-		_copy(output, &neg, 1);
-		_copy(output, min, 10);
-		return (11);
-	}
 }
