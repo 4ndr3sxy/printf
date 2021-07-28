@@ -70,7 +70,7 @@ unsigned int convert_S(va_list args, buffer_t *output)
  */
 unsigned int convert_p(va_list args, buffer_t *output)
 {
-	char *null = "(nil)";
+	char *null = "(nil)", *index = "0x";
 	unsigned long int address;
 	unsigned int ret = 0;
 
@@ -78,6 +78,7 @@ unsigned int convert_p(va_list args, buffer_t *output)
 	if (address == '\0')
 		return (_copy(output, null, 5));
 
+	ret += _copy(output, index, 2);
 	ret += convert_ubase(output, address, "0123456789abcdef");
 	return (ret);
 }
