@@ -23,8 +23,9 @@ void cleaner(va_list arg_list, buffer_t *output)
 unsigned int execute_printf(const char *format,
 							va_list arg_list, buffer_t *output)
 {
-	unsigned int i, ret = 0;
+	unsigned int i, ret = 0, k = 0;
 	unsigned int (*f)(va_list, buffer_t *);
+	char *characters;
 
 	for (i = 0; *(format + i); i++)
 	{
@@ -43,7 +44,17 @@ unsigned int execute_printf(const char *format,
 				break;
 			}
 		}
-		ret += _copy(output, (format + i), 1);
+		else if (*(format + i) == '\\')
+		{
+			characters = "ntbfvr";
+			while (characters[k])
+			{
+				if (characters[k] == *(format + i + 1))
+					ret += _copy(output, 92 + (format + i + 1), 1);
+			}
+		}
+		else
+			ret += _copy(output, (format + i), 1);
 	}
 	cleaner(arg_list, output);
 	return (ret);
