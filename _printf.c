@@ -45,7 +45,7 @@ unsigned int execute_printf(const char *format,
 				{
 					if (*(format + i + 1) == '+')
 					{
-						 ret += _copy(output, '+', 1);
+						ret += _copy(output, '+', 1);
 						ret += f(arg_list, output);
 					}
 					ret += _copy(output, ' ', 1);
