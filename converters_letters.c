@@ -15,7 +15,7 @@ unsigned int convert_c(va_list arg_list, buffer_t *output)
 
 	c = va_arg(arg_list, int);
 
-	ret += _copy(output, &c, 2);
+	ret += _copy(output, &c, 1);
 
 	return (ret);
 }
