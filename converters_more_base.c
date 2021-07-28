@@ -81,3 +81,42 @@ unsigned int convert_p(va_list args, buffer_t *output)
 	ret += convert_ubase(output, address, "0123456789abcdef");
 	return (ret);
 }
+
+/**
+ * convert_R - Converts a string to ROT13 and copies
+ *             it to the output.
+ * @arg: A va_list list containing the arguments.
+ * @output: A buffer_t struct containing a character array.
+ * Return: The number of bytes stored to the buffer.
+ */
+unsigned int convert_R(va_list arg_list, buffer_t *output)
+{
+	char *alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char *rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	char *str, *null = "(null)";
+	int i, j, size;
+	unsigned int ret = 0;
+
+	str = va_arg(arg_list, char *);
+	if (str == NULL)
+		return (_memcpy(output, null, 6));
+
+	for (size = 0; *(str + size);)
+		size++;
+
+	for (i = 0; *(str + i) != '\0'; i++)
+	{
+		for (j = 0; j < 52; j++)
+		{
+			if (*(str + i) == *(alpha + j))
+			{
+				ret += _memcpy(output, (rot13 + j), 1);
+				break;
+			}
+		}
+		if (j == 52)
+			ret += _memcpy(output, (str + i), 1);
+	}
+
+	return (ret);
+}
