@@ -22,6 +22,7 @@ unsigned int (*character_handler(const char *character))(va_list, buffer_t *)
 		{'S', convert_S},
 		{'p', convert_p},
 		{'r', convert_r},
+		{'R', convert_R},
 		{0, NULL}};
 
 	for (i = 0; converters[i].func; i++)
