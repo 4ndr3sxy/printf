@@ -72,7 +72,7 @@ unsigned int handle_limits(buffer_t *output, int num)
 	if (num == INT_MIN)
 	{
 		_copy(output, min, 10);
-		return (10);
+		return (11);
 	}
 	if (num == 0)
 	{
