@@ -43,6 +43,7 @@ unsigned int convert_s(va_list ap, buffer_t *output);
 unsigned int convert_percent(__attribute__((unused)) va_list arg_list,
 							 buffer_t *output);
 unsigned int convert_di(va_list arg_list, buffer_t *output);
+unsigned int handle_limits(buffer_t *output, int num);
 unsigned int convert_b(va_list arg_list, buffer_t *output);
 unsigned int convert_ubase(buffer_t *output, unsigned long int num,
 						   char *base);
