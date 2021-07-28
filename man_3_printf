@@ -2,7 +2,7 @@
 .\" Contact vivek@nixcraft.net.in to correct errors or typos.
 .TH _PRINTF 3 "July 2021" "1.0" "User Commands"
 .SH NAME
-_printf \- print a standard output 
+_printf \- print a standard output
 .SH SYNOPSIS
 _printf (const char *format, [ARGUMENT]...)
 .SH DESCRIPTION
